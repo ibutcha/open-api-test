@@ -1,0 +1,155 @@
+{
+    "info": {
+        "_postman_id": "276ee3f2-6e04-455d-884f-1def9daefb7c",
+        "name": "Stg-Payment API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Sample endpoint: Returns details about a particular customer",
+            "id": "586112b2-3295-4eb5-bebc-f8d204667e3f",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/user/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "user",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "id": "8fbf123e-5809-40dd-9642-79ac04ef716b",
+                            "key": "id",
+                            "value": "aute sit",
+                            "type": "any",
+                            "description": "(Required) ID of the user"
+                        }
+                    ]
+                },
+                "description": "This should be reflected to the API Collection"
+            },
+            "response": [
+                {
+                    "id": "789ce677-704d-46c4-b101-f6fe119fcb90",
+                    "name": "Sample response: Details about a user by ID",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/user/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user",
+                                "1"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": {
+                                "content": "A link to the next page of responses",
+                                "type": "text/plain"
+                            },
+                            "key": "x-next",
+                            "value": "aute sit"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n    \"id\": -37709403,\n    \"name\": \"ad aliqua sed\",\n    \"tag\": \"veniam ea in mollit\"\n}"
+                },
+                {
+                    "id": "999aa0db-e251-47ba-8322-ea2103090b02",
+                    "name": "Unexpected error",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/user/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n\t\"code\": -74355090,\n\t\"message\": \"enim ut\"\n}"
+                },
+                {
+                    "id": "52bc3448-9d42-4d23-9224-1a222074738d",
+                    "name": "2",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/user/2",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user",
+                                "2"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": null,
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n    \"id\": -37709403,\n    \"name\": \"ad aliqua sed\",\n    \"tag\": \"veniam ea in mollit\"\n}"
+                }
+            ],
+            "variable": [
+                {
+                    "id": "8fbf123e-5809-40dd-9642-79ac04ef716b",
+                    "key": "id",
+                    "value": "aute sit",
+                    "type": "any",
+                    "description": "(Required) ID of the user"
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "id": "dcb28381-816a-4f10-a787-037f246b3c36",
+            "key": "baseUrl",
+            "value": "http://localhost:3000",
+            "type": "string"
+        }
+    ]
+}

@@ -1,0 +1,717 @@
+{
+    "info": {
+        "_postman_id": "b2be6b2c-4d02-460c-a36b-4ee840baddb6",
+        "name": "tessst",
+        "description": "The service will retrieve the customer’s mobile or broadband account plan details using accountNumber  or landlineNumber for broadband account and mobileNumber for mobile account.\n",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "00004-GetPlanDetail-v2",
+            "id": "12fa52ff-ab40-434e-becc-3754b1cdbd5a",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "<Bearer Token>",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                        "key": "User-Token",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                    },
+                    {
+                        "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                        "key": "OTPReferenceId",
+                        "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                    },
+                    {
+                        "description": "Customer's mobile identifier for analytics purposes, etc.",
+                        "key": "DeviceId",
+                        "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "accountManagement",
+                        "accounts",
+                        "products",
+                        "plans"
+                    ],
+                    "query": [
+                        {
+                            "key": "brand",
+                            "value": "prepaid",
+                            "description": "(Required) Customer payment's category brand."
+                        },
+                        {
+                            "key": "segment",
+                            "value": "broadband",
+                            "description": "(Required) Type of the subscriber's account."
+                        },
+                        {
+                            "key": "mobileNumber",
+                            "value": "/639246617940/",
+                            "description": "Customer's mobile number a.k.a `MSISDN` - Accepts 639xx, 09xx, 9xx format.\n\n**Required if any of the following parameter is not provided.**:\n   - accountNumber\n   - landlineNumber"
+                        },
+                        {
+                            "key": "accountNumber",
+                            "value": "720155800",
+                            "description": "Customer's Account number, mandatory when **landlineNumber** is not provided."
+                        },
+                        {
+                            "key": "landlineNumber",
+                            "value": "276226966",
+                            "description": "Customer's Landline number, mandatory when **accountNumber** is not provided."
+                        },
+                        {
+                            "key": "accountType",
+                            "value": "G",
+                            "description": "Broadband subsciber's account type."
+                        },
+                        {
+                            "key": "customerId",
+                            "value": "1000035997",
+                            "description": "Broadband subscriber's customer id. It's unique identifier at customer level."
+                        }
+                    ]
+                },
+                "description": "The service will retrieve the customer’s mobile or broadband account plan details using accountNumber  or landlineNumber for broadband account and mobileNumber for mobile account.\n"
+            },
+            "response": [
+                {
+                    "id": "596e1451-0a9a-4227-ae3d-80d44ab14ea3",
+                    "name": "The server successfully processed the request.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            },
+                            {
+                                "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                                "key": "User-Token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                            },
+                            {
+                                "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                                "key": "OTPReferenceId",
+                                "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                            },
+                            {
+                                "description": "Customer's mobile identifier for analytics purposes, etc.",
+                                "key": "DeviceId",
+                                "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "accountManagement",
+                                "accounts",
+                                "products",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "prepaid"
+                                },
+                                {
+                                    "key": "segment",
+                                    "value": "broadband"
+                                },
+                                {
+                                    "key": "mobileNumber",
+                                    "value": "/639246617940/"
+                                },
+                                {
+                                    "key": "accountNumber",
+                                    "value": "720155800"
+                                },
+                                {
+                                    "key": "landlineNumber",
+                                    "value": "276226966"
+                                },
+                                {
+                                    "key": "accountType",
+                                    "value": "G"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "value": "1000035997"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "(Required) Unique identifier for any CXS transaction.",
+                            "key": "cxsMessageId",
+                            "value": "urn:uuid:5a8dd0f9-6873-0395-51f1-7e8797562cbf"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. Start date time of request processing.",
+                            "key": "cxsRequestDateTime",
+                            "value": "1997-02-28T15:16:47.563Z"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. End date time of request processing.",
+                            "key": "cxsResponseDateTime",
+                            "value": "1978-11-23T12:32:13.701Z"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"result\": {\n  \"cxsAccountId\": \"\",\n  \"plan\": {\n   \"accountNumber\": \"111111111\",\n   \"mobileNumber\": \"\",\n   \"landlineNumber\": \"11111111\",\n   \"mpid\": \"15227702\",\n   \"planName\": \"Plan 1299 10Mbps (150GB/Month) - LTE\",\n   \"creditLimit\": \"6000\",\n   \"spendingLimit\": \"1300\",\n   \"contractExpiryDate\": \"2021-04-05T17:17:46Z\",\n   \"contractDuration\": \"12 months\",\n   \"monthRemaining\": \"3\",\n   \"deviceInfo\": \"\",\n   \"deviceBrand\": \"\",\n   \"bandwidth\": \"10 MBPS\",\n   \"unitOfMeasure\": \"string\",\n   \"price\": \"1159.82\",\n   \"isUnli\": \"\",\n   \"isforVolumeBoost\": \"\",\n   \"planType\": \"\",\n   \"hasVolumeBoost\": \"\",\n   \"nextRenewalDate\": \"\",\n   \"hasDeviceAddons\": \"\",\n   \"productCategory\": \"\"\n  }\n }\n}"
+                },
+                {
+                    "id": "31b37b87-956b-431f-975e-aec12ebe8415",
+                    "name": "The server cannot or will not process the request due to an apparent client error.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            },
+                            {
+                                "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                                "key": "User-Token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                            },
+                            {
+                                "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                                "key": "OTPReferenceId",
+                                "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                            },
+                            {
+                                "description": "Customer's mobile identifier for analytics purposes, etc.",
+                                "key": "DeviceId",
+                                "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "accountManagement",
+                                "accounts",
+                                "products",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "prepaid"
+                                },
+                                {
+                                    "key": "segment",
+                                    "value": "broadband"
+                                },
+                                {
+                                    "key": "mobileNumber",
+                                    "value": "/639246617940/"
+                                },
+                                {
+                                    "key": "accountNumber",
+                                    "value": "720155800"
+                                },
+                                {
+                                    "key": "landlineNumber",
+                                    "value": "276226966"
+                                },
+                                {
+                                    "key": "accountType",
+                                    "value": "G"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "value": "1000035997"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "(Required) Unique identifier for any CXS transaction.",
+                            "key": "cxsMessageId",
+                            "value": "urn:uuid:5a8dd0f9-6873-0395-51f1-7e8797562cbf"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. Start date time of request processing.",
+                            "key": "cxsRequestDateTime",
+                            "value": "1997-02-28T15:16:47.563Z"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. End date time of request processing.",
+                            "key": "cxsResponseDateTime",
+                            "value": "1978-11-23T12:32:13.701Z"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": {\n  \"code\": \"40005\",\n  \"message\": \"Operation Failed\",\n  \"details\": \"The provided account is not valid.\",\n  \"displayMessage\": \"\"\n },\n \"moreInfo\": \"\"\n}"
+                },
+                {
+                    "id": "f3075cda-39c1-439a-b09f-82323a77f8d3",
+                    "name": "The api client is not authorized to access the api resource.\n",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            },
+                            {
+                                "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                                "key": "User-Token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                            },
+                            {
+                                "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                                "key": "OTPReferenceId",
+                                "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                            },
+                            {
+                                "description": "Customer's mobile identifier for analytics purposes, etc.",
+                                "key": "DeviceId",
+                                "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "accountManagement",
+                                "accounts",
+                                "products",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "prepaid"
+                                },
+                                {
+                                    "key": "segment",
+                                    "value": "broadband"
+                                },
+                                {
+                                    "key": "mobileNumber",
+                                    "value": "/639246617940/"
+                                },
+                                {
+                                    "key": "accountNumber",
+                                    "value": "720155800"
+                                },
+                                {
+                                    "key": "landlineNumber",
+                                    "value": "276226966"
+                                },
+                                {
+                                    "key": "accountType",
+                                    "value": "G"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "value": "1000035997"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "(Required) Unique identifier for any CXS transaction.",
+                            "key": "cxsMessageId",
+                            "value": "urn:uuid:5a8dd0f9-6873-0395-51f1-7e8797562cbf"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. Start date time of request processing.",
+                            "key": "cxsRequestDateTime",
+                            "value": "1997-02-28T15:16:47.563Z"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. End date time of request processing.",
+                            "key": "cxsResponseDateTime",
+                            "value": "1978-11-23T12:32:13.701Z"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": {\n  \"code\": \"40109\",\n  \"message\": \"Operation Failed\",\n  \"details\": \"User-Token details not found.\",\n  \"displayMessage\": \"\"\n },\n \"moreInfo\": \"\"\n}"
+                },
+                {
+                    "id": "eb507a2b-5366-450a-a4ed-118671fe7706",
+                    "name": "The api client doesn't have the necessary permissions to access the api resource.\n",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            },
+                            {
+                                "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                                "key": "User-Token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                            },
+                            {
+                                "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                                "key": "OTPReferenceId",
+                                "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                            },
+                            {
+                                "description": "Customer's mobile identifier for analytics purposes, etc.",
+                                "key": "DeviceId",
+                                "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "accountManagement",
+                                "accounts",
+                                "products",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "prepaid"
+                                },
+                                {
+                                    "key": "segment",
+                                    "value": "broadband"
+                                },
+                                {
+                                    "key": "mobileNumber",
+                                    "value": "/639246617940/"
+                                },
+                                {
+                                    "key": "accountNumber",
+                                    "value": "720155800"
+                                },
+                                {
+                                    "key": "landlineNumber",
+                                    "value": "276226966"
+                                },
+                                {
+                                    "key": "accountType",
+                                    "value": "G"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "value": "1000035997"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "(Required) Unique identifier for any CXS transaction.",
+                            "key": "cxsMessageId",
+                            "value": "urn:uuid:5a8dd0f9-6873-0395-51f1-7e8797562cbf"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. Start date time of request processing.",
+                            "key": "cxsRequestDateTime",
+                            "value": "1997-02-28T15:16:47.563Z"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. End date time of request processing.",
+                            "key": "cxsResponseDateTime",
+                            "value": "1978-11-23T12:32:13.701Z"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": {\n  \"code\": \"40301\",\n  \"message\": \"Insufficient Scope\",\n  \"details\": \"The authorization header has insufficient permissions to access the API resource.\",\n  \"displayMessage\": \"\"\n },\n \"moreInfo\": \"\"\n}"
+                },
+                {
+                    "id": "372362c1-697e-47dd-a901-00494440c91c",
+                    "name": "The requested resource could not be found but may be available in the future.\n",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            },
+                            {
+                                "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                                "key": "User-Token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                            },
+                            {
+                                "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                                "key": "OTPReferenceId",
+                                "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                            },
+                            {
+                                "description": "Customer's mobile identifier for analytics purposes, etc.",
+                                "key": "DeviceId",
+                                "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "accountManagement",
+                                "accounts",
+                                "products",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "prepaid"
+                                },
+                                {
+                                    "key": "segment",
+                                    "value": "broadband"
+                                },
+                                {
+                                    "key": "mobileNumber",
+                                    "value": "/639246617940/"
+                                },
+                                {
+                                    "key": "accountNumber",
+                                    "value": "720155800"
+                                },
+                                {
+                                    "key": "landlineNumber",
+                                    "value": "276226966"
+                                },
+                                {
+                                    "key": "accountType",
+                                    "value": "G"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "value": "1000035997"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Not Found",
+                    "code": 404,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "(Required) Unique identifier for any CXS transaction.",
+                            "key": "cxsMessageId",
+                            "value": "urn:uuid:5a8dd0f9-6873-0395-51f1-7e8797562cbf"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. Start date time of request processing.",
+                            "key": "cxsRequestDateTime",
+                            "value": "1997-02-28T15:16:47.563Z"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. End date time of request processing.",
+                            "key": "cxsResponseDateTime",
+                            "value": "1978-11-23T12:32:13.701Z"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": {\n  \"code\": \"40401\",\n  \"message\": \"Resource Not Found\",\n  \"details\": \"The requested resource is not found.\",\n  \"displayMessage\": \"\"\n },\n \"moreInfo\": \"\"\n}"
+                },
+                {
+                    "id": "7fbbf8e4-4fa9-43a8-accd-3293037b015a",
+                    "name": "The server encountered an internal downstream error.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            },
+                            {
+                                "description": "Mobile user temporary acess token to allow api resources access. <br /> Generated through `Customer Identity Access Management(CIAM)` API service in response to a login request. <br /> _**Note: Required only if Digital Channel used `CIAM` as `user authentication`._  \n",
+                                "key": "User-Token",
+                                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2N4c2VydmljZXNAZ21haWwuY29tIiwidXVpZCI6IjJjNDJkYmM0LTYwMmQtNDIzYS1hOWViLTQ3MjMwMmIyZjNlZiIsImVtYWlsVmVyaWZpZWQiOiIyMDIxLTA3LTE1IDExOjU3OjEyLjY5MTgzOSArMDAwMCIsImlzTmV3IjpmYWxzZSwiYWNjZXNzVG9rZW4iOiIyazl3OXA3ZnVxamRzOXk5IiwicmVmcmVzaFRva2VuIjoidGFneDN4dDljdHFxbXpheGpua3oiLCJpYXQiOjE2MjY5NTAwMjYsImlzcyI6IkNYUyIsImV4cCI6MTYyNjk1MzYyNn0.wDioADJeS-Eu75OcdWoJUakJy1No23hngJih3jfRepY"
+                            },
+                            {
+                                "description": "Generated unique identifier for the provided OTP sent to provided address such as mobile number, email, etc. <br /> _** Note: Required only if Digital Channel used `OTP` as `API Security` for **specific use-case transaction**._\n",
+                                "key": "OTPReferenceId",
+                                "value": "14678773-b589-45c4-bbd8-9a9968569e5b"
+                            },
+                            {
+                                "description": "Customer's mobile identifier for analytics purposes, etc.",
+                                "key": "DeviceId",
+                                "value": "06182063-51a8-4659-9174-f822e194b5d3"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/v2/accountManagement/accounts/products/plans?brand=prepaid&segment=broadband&mobileNumber=/639246617940/&accountNumber=720155800&landlineNumber=276226966&accountType=G&customerId=1000035997",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "accountManagement",
+                                "accounts",
+                                "products",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "prepaid"
+                                },
+                                {
+                                    "key": "segment",
+                                    "value": "broadband"
+                                },
+                                {
+                                    "key": "mobileNumber",
+                                    "value": "/639246617940/"
+                                },
+                                {
+                                    "key": "accountNumber",
+                                    "value": "720155800"
+                                },
+                                {
+                                    "key": "landlineNumber",
+                                    "value": "276226966"
+                                },
+                                {
+                                    "key": "accountType",
+                                    "value": "G"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "value": "1000035997"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "(Required) Unique identifier for any CXS transaction.",
+                            "key": "cxsMessageId",
+                            "value": "urn:uuid:5a8dd0f9-6873-0395-51f1-7e8797562cbf"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. Start date time of request processing.",
+                            "key": "cxsRequestDateTime",
+                            "value": "1997-02-28T15:16:47.563Z"
+                        },
+                        {
+                            "disabled": false,
+                            "description": "(Required) Date in UTC. End date time of request processing.",
+                            "key": "cxsResponseDateTime",
+                            "value": "1978-11-23T12:32:13.701Z"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": {\n  \"code\": \"50001\",\n  \"message\": \"Downstream Error\",\n  \"details\": \"The server encountered an internal downstream error.\",\n  \"displayMessage\": \"\"\n },\n \"moreInfo\": \"\"\n}"
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "id": "41752330-8a7b-4f55-a231-55cf4e699669",
+            "key": "baseUrl",
+            "value": "https://DEV_DNS",
+            "type": "string"
+        }
+    ]
+}
